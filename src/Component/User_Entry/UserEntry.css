@@ -1,0 +1,35 @@
+.userEntryCard{
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+}
+
+.Link{
+    color: rgb(107, 107, 248);
+    
+}
+
+.UserEntryBox{
+    box-shadow: 0 0 5px 5px rgb(137, 71, 163);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+
+
+.UserEntryBox:nth-child(1)>h1{
+    text-align: center;
+    color: rgb(210, 114, 248);
+    font-weight: bolder;
+}
+
+.UserEntryBox:nth-child(1)>div{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
