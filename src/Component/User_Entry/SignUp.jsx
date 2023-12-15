@@ -9,14 +9,12 @@ import {
   import React, { useEffect, useState } from "react";
   import axios from "axios";
   import "./UserEntry.css";
-  import { useCommonContext } from "../../State_Management/ContextApi";
   import { Link, useNavigate } from "react-router-dom";
   import { decodeToken } from "react-jwt";
   import GoogleIcon from '@mui/icons-material/Google';
   
   const UserSignup = () => {
     const navigate = useNavigate();
-    const { commonApi } = useCommonContext();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
