@@ -45,19 +45,26 @@ import {
       try {
         e.preventDefault();
         setLoading(true);
-        const string = encodeURIComponent(JSON.stringify(formData));
-        const response = await axios.post(`${commonApi}/user/login/${string}`);
+        const response = await axios.post("https://funnelhq-4h7s.onrender.com/api/user/signin",formData);
         const data = await response.data;
-        if (data.message === "User logined successfully") {
+        console.log(data)
+        if (data.message === "Successfully signed in") {
           localStorage.setItem("userToken", data.token);
           navigate("/");
         }
       } catch (error) {
         alert(error.response.data.message);
-        console.log("Signup error ", error.response.data);
+        console.log("Sign in error ", error.response.data);
       } finally {
         setLoading(false);
       }
+    };
+
+    const googleAuth = () => {
+      window.open(
+        `https://funnelhq-4h7s.onrender.com/auth/google/callback`,
+        "_self"
+      );
     };
   
     return (
@@ -155,7 +162,7 @@ import {
           <Box component="div" style={{display:"flex",flexDirection:"column",alignItems:"center",height:100,justifyContent:"center"}}>
            <Typography  color="secondary" component="h2">OR</Typography>
           <Typography  component="div" display="flex" alignItems="center">
-          <IconButton>
+          <IconButton onClick={googleAuth}>
                  <GoogleIcon color="secondary"/>        
           </IconButton>
           <Typography component="span" color="aliceblue">Log in with Google</Typography>
